@@ -20,7 +20,7 @@ builds:
       - aarch64-apple-darwin
 
 archives:
-  - format: tar.gz
+  - formats: ["tar.gz"]
     name_template: >-
       {{ .ProjectName }}_
       {{- title .Os }}_
@@ -40,4 +40,6 @@ changelog:
       - "^chore:"
 
 release:
-  generate_release_notes: true
+  github:
+    owner: '{{ envOrDefault "GITHUB_REPOSITORY_OWNER" "" }}'
+    name: mdquery
